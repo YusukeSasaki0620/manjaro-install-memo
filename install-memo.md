@@ -9,6 +9,7 @@
 - USBメディア作成
 - UGIでポチポチインストール
   - パーティション全削除新規
+
 (省略)
 
 # パッケージ系初期設定
@@ -57,11 +58,46 @@ exec --no-startup-id fcitx
 再起動
 
 
-##　メモ用VScodeいれる
+## メモ用VScodeいれる
 
 ```
 yay -S visual-studio-code-bin
 ```
+
+
+## デフォルトシェルをzshに変更
+```
+chsh -s $(which zsh)
+```
+ログオフ->ログオン
+
+
+## キーボードカスタマイズ
+操作性が死にすぎて発狂しそうなので早々に
+### 日本語・英語切り替え
+```
+fcitx-configtool
+```
+GUIが入ってないと言われるのでいれる
+
+```
+yay -S fcitx-configtool
+```
+
+日本語が化けるので日本語フォント入れる
+```
+yay -S adobe-source-han-sans-jp-fonts
+```
+再起動
+
+mozcツール->設定ツール
+一般->キー設定->キー設定の選択->編集
+Henkan/Muhenkan
+=>
+IME有効/IME無効
+
+
+## 日本語
 
 $ sudo pacman -S xdg-user-dirs-gtk
 $ LANG=C xdg-user-dirs-gtk-update#＃
