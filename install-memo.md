@@ -33,6 +33,11 @@ sudo pacman -S firefox
 sudo pacman -S vivaldi
 ```
 
+### chrome
+```
+yay google-chrome-stable
+
+```
 ## 日本語化
 ### mozc入れる
 ```
@@ -96,10 +101,29 @@ Henkan/Muhenkan
 =>
 IME有効/IME無効
 
+### TODO
+手間なのでファイル書き出しして読み込めるようにしたい
+## デュアルディスプレイ対応
+### GPUドライバインストール
+```
+sudo mhwd -a pci nonfree 0300
+```
+OSインストール時にnonfreeでやたので導入済み
+### 設定
+sudo nvidia-settings
+UGIで設定変更
+設定ファイル保存
+設定反映
+```
+ln -s /etc/X11/xorg.conf /etc/X11/xorg.conf.d/80-screen.conf
+```
+ログオフ->ログオン
 
-## 日本語
 
-$ sudo pacman -S xdg-user-dirs-gtk
-$ LANG=C xdg-user-dirs-gtk-update#＃
 
-$ yay google-chrome-stable
+## ホーム配下サブディレクトリ英語化
+```
+yay -S xdg-user-dirs-gtk
+LANG=C xdg-user-dirs-gtk-update
+```
+再起動
