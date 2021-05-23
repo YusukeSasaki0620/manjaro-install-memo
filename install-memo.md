@@ -1,8 +1,9 @@
 初期構築手順を備忘がてらメモ
 # 環境
 - core i7 3930k
-- メモリ
-- ssh
+- GeForce GT 640
+- メモリ 24GB
+- ssd 1TB
 - manjaro i3 21.0
 
 # インストール
@@ -36,7 +37,6 @@ sudo pacman -S vivaldi
 ### chrome
 ```
 yay google-chrome-stable
-
 ```
 ## 日本語化
 ### mozc入れる
@@ -102,13 +102,14 @@ Henkan/Muhenkan
 IME有効/IME無効
 
 ### TODO
-手間なのでファイル書き出しして読み込めるようにしたい
+- [ ] 手間なのでファイル書き出しして読み込めるようにしたい
 ## デュアルディスプレイ対応
 ### GPUドライバインストール
 ```
 sudo mhwd -a pci nonfree 0300
 ```
-OSインストール時にnonfreeでやたので導入済み
+OSインストール時にnonfreeでやったので導入済み
+貧弱GPUかつテキスト編集できればいいレベルなので入れ直したりせずこのまま
 ### 設定
 sudo nvidia-settings
 UGIで設定変更
@@ -118,7 +119,6 @@ UGIで設定変更
 ln -s /etc/X11/xorg.conf /etc/X11/xorg.conf.d/80-screen.conf
 ```
 ログオフ->ログオン
-
 
 ## パッケージインストールが遅いので最適化
 /etc/makepkg.conf
@@ -148,4 +148,27 @@ LANG=C xdg-user-dirs-gtk-update
 ```
 再起動
 
-できてない、、、
+できてない、、、なぜだ
+
+## スクリーンセーバー解除
+ロックかかるとフリーズしてるのかと勘違いする状態
+入力画面に変わったりしない罠
+パスワードenter
+
+## ブラウザショートカット更新
+.i3/config編集
+palemoon-bin uninstall
+
+# 調整したいこと
+- [ ] modをどうするか、どこに配置するか
+- [ ] ターミナルでコピーできない問題、mac likeな操作性がほしい
+- [ ] i3/config読み込み
+  - [ ] できること確認
+  - [ ] ワークスペース移動最適化,
+- [ ] vscodeではなくvimでいくべきか
+- [ ] zshプラグインでよさげなのさがす
+- [ ] beepならないように、うざい
+
+
+# qmk_firmware入らない問題
+python周りがうまくいてない臭い？
