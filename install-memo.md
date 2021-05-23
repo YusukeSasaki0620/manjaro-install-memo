@@ -120,6 +120,26 @@ ln -s /etc/X11/xorg.conf /etc/X11/xorg.conf.d/80-screen.conf
 ログオフ->ログオン
 
 
+## パッケージインストールが遅いので最適化
+/etc/makepkg.conf
+### 圧縮マルチコア化
+```
+COMPRESSXZ=(xz -c -z - --threads=0)
+```
+### コンパイルオプション
+```
+% grep -m1 -A3 "vendor_id" /proc/cpuinfo
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 45
+model name	: Intel(R) Core(TM) i7-3930K CPU @ 3.20GHz
+```
+https://wiki.gentoo.org/wiki/Safe_CFLAGS#Intel
+=>
+MAKEFLAGSのオプションを-march=sandybridge
+
+
+はやくなってる、、、か？
 
 ## ホーム配下サブディレクトリ英語化
 ```
@@ -127,3 +147,5 @@ yay -S xdg-user-dirs-gtk
 LANG=C xdg-user-dirs-gtk-update
 ```
 再起動
+
+できてない、、、
